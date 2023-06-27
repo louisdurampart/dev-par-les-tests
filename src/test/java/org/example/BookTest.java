@@ -45,4 +45,44 @@ public class BookTest {
 
         Assertions.assertNull(book);
     }
+    @Test
+    public void testGetBookByISBN() {
+        Book book1 = new Book("1234567890", "Titre 1", "Auteur 1");
+        Book book2 = new Book("9876543210", "Titre 2", "Auteur 2");
+        Book book3 = new Book("1111111111", "Titre 3", "Auteur 3");
+
+        Book[] books = {book1, book2, book3};
+
+        String isbnToSearch = "9876543210";
+        Book result = Book.getBookByISBN(isbnToSearch, books);
+
+        Assertions.assertEquals(book2, result);
+    }
+    @Test
+    public void testGetBookByTitle() {
+        Book book1 = new Book("1234567890", "Titre 1", "Auteur 1");
+        Book book2 = new Book("9876543210", "Titre 2", "Auteur 2");
+        Book book3 = new Book("1111111111", "Titre 3", "Auteur 3");
+
+        Book[] books = {book1, book2, book3};
+
+        String titleToSearch = "Titre 2";
+        Book result = Book.getBookByTitle(titleToSearch, books);
+
+        Assertions.assertEquals(book2, result);
+    }
+
+    @Test
+    public void testGetBookByAuthor() {
+        Book book1 = new Book("1234567890", "Titre 1", "Auteur 1");
+        Book book2 = new Book("9876543210", "Titre 2", "Auteur 2");
+        Book book3 = new Book("1111111111", "Titre 3", "Auteur 3");
+
+        Book[] books = {book1, book2, book3};
+
+        String authorToSearch = "Auteur 3";
+        Book result = Book.getBookByAuthor(authorToSearch, books);
+
+        Assertions.assertEquals(book3, result);
+    }
 }
