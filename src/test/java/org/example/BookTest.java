@@ -72,7 +72,7 @@ public class BookTest {
         Book[] books = {book1, book2, book3};
 
         String isbnToSearch = "9876543210";
-        Book result = Book.getBookByISBN(isbnToSearch, List.of(books));
+        Book result = BookService.getBookByISBN(isbnToSearch, List.of(books));
 
         Assertions.assertEquals(book2, result);
 
@@ -86,7 +86,7 @@ public class BookTest {
         Book[] books = {book1, book2, book3};
 
         String titleToSearch = "Titre 2";
-        Book result = (Book) Book.getBookByTitle(titleToSearch, List.of(books));
+        Book result = (Book) BookService.getBookByTitle(titleToSearch, List.of(books));
 
         Assertions.assertEquals(book2, result);
     }
@@ -100,7 +100,7 @@ public class BookTest {
         Book[] books = {book1, book2, book3};
 
         String authorToSearch = "Auteur 3";
-        Book result = (Book) Book.getBookByAuthor(authorToSearch,  List.of(books));
+        Book result = (Book) BookService.getBookByAuthor(authorToSearch,  List.of(books));
 
         Assertions.assertEquals(book3, result);
     }
