@@ -9,11 +9,17 @@ public class Book {
     private String isbn;
     private String title;
     private String author;
+    private String publisher;
+    private Format format;
+    private boolean available;
 
-    public Book(String isbn, String title, String author) {
+    public Book(String isbn, String title, String author, String publisher, Format format, boolean available) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
+        this.publisher = publisher;
+        this.format = format;
+        this.available = available;
     }
 
     public String getIsbn() {
@@ -28,6 +34,18 @@ public class Book {
         return author;
     }
 
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public Format getFormat() {
+        return format;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
@@ -39,6 +57,19 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public void setFormat(Format format) {
+        this.format = format;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
     public static Book getBookByISBN(String isbn, List<Book> books) {
         for (Book book : books) {
             if (book.getIsbn().equals(isbn)) {
@@ -67,6 +98,7 @@ public class Book {
         }
         return result;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
